@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-09 13:19-0400\n"
-"PO-Revision-Date: 2011-10-14 03:26+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2016-05-20 00:48+0000\n"
+"Last-Translator: Chris <cjl@sugarlabs.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.1.1\n"
+"X-POOTLE-MTIME: 1463705332.000000\n"
 
 #: activity/activity.info:2
 msgid "Arithmetic"
@@ -27,23 +28,23 @@ msgstr "नाम"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:174
 msgid "Round score"
-msgstr ""
+msgstr "दौर का स्कोर"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:175
 msgid "Total score"
-msgstr ""
+msgstr "कुल स्कोर"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:176
 msgid "Time for answering last question"
-msgstr ""
+msgstr "आखिरी सवाल का जवाब देने के लिए समय"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:206
 msgid "Difficulty: "
-msgstr "कठिनाईः "
+msgstr "कठिनाई: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:207
 msgid "Period: "
-msgstr ""
+msgstr "अवधि: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:209
 msgid "Puzzles: "
@@ -59,20 +60,20 @@ msgstr "उत्तर: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:212
 msgid "You were: "
-msgstr ""
+msgstr "आप थे: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:213
 msgid "Last round: "
-msgstr ""
+msgstr "आखिरी दौर: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:215
 msgid "Time until next question: "
-msgstr ""
+msgstr "अगले सवाल तक का समय: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:383
 msgid "Correct!"
-msgstr "सही"
+msgstr "सही!"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:392
 msgid "Not correct"
-msgstr ""
+msgstr "गलत"

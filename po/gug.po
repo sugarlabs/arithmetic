@@ -2,78 +2,79 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-09 13:19-0400\n"
-"PO-Revision-Date: 2017-02-18 22:45+0000\n"
+"PO-Revision-Date: 2017-02-18 22:11+0000\n"
 "Last-Translator: Chris <cjl@sugarlabs.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: nah\n"
+"Language: gug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Pootle 2.5.1.1\n"
-"X-POOTLE-MTIME: 1487457951.000000\n"
+"X-POOTLE-MTIME: 1487455906.000000\n"
 
 #: activity/activity.info:2
 msgid "Arithmetic"
-msgstr "Aritmética"
+msgstr "Aritmética (Papapy rehegua)"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:173
 msgid "Name"
-msgstr "Tokaitl"
+msgstr "Téra"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:174
 msgid "Round score"
-msgstr "Puntuación tlen tolontik"
+msgstr "Kyta jerépe"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:175
 msgid "Total score"
-msgstr "Puntuación tlen nochi"
+msgstr "Kyta apopy"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:176
 msgid "Time for answering last question"
-msgstr "Nemaktli pampa tijnankilis tlen mits tlajtlanian"
+msgstr "Aravo ome'éva rembohovái hag̃ua porandu paha"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:206
 msgid "Difficulty: "
-msgstr "Oui: "
+msgstr "Jetu'u: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:207
 msgid "Period: "
-msgstr "Nemaktli: "
+msgstr "Ára pehẽngue: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:209
 msgid "Puzzles: "
-msgstr "Tlanejneuilpamitl: "
+msgstr "Kuaara'ã: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:210
 msgid "Question: "
-msgstr "Tlajtlani: "
+msgstr "Porandu: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:211
 msgid "Answer: "
-msgstr "Tlanankililotl: "
+msgstr "Mbohovái: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:212
 msgid "You were: "
-msgstr "Ta tieltuya: "
+msgstr "Ndeva'ekue: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:213
 msgid "Last round: "
-msgstr "Kali teipa milakatsoua: "
+msgstr "Jere paha: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:215
 msgid "Time until next question: "
-msgstr "Tonalli kali itokil tlajtlani: "
+msgstr "Áravo oñeme'ẽva porandurã: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:383
 msgid "Correct!"
-msgstr "Kena kuali!"
+msgstr "Oĩ porã!"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:392
 msgid "Not correct"
-msgstr "Aamo kuali"
+msgstr "Oĩ vai"

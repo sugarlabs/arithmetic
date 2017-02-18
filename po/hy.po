@@ -2,22 +2,6 @@
 # Copyright (C) 2009 
 # This file is distributed under the same license as the PACKAGE package.
 # Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"

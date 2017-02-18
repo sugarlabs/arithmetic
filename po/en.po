@@ -1,42 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Arithmetic 
 # Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
-# Arithmetic 
-# Copyright (C) 2009 
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the Arithmetic package.
 # Chris Ball <cjb@laptop.org>
 msgid ""
 msgstr ""

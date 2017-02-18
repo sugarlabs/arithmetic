@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-09 13:19-0400\n"
-"PO-Revision-Date: 2011-07-04 21:23+0200\n"
-"Last-Translator: <daniel.hamngren@gmail.com>\n"
+"PO-Revision-Date: 2017-02-18 22:32+0000\n"
+"Last-Translator: Chris <cjl@sugarlabs.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.5.1.1\n"
+"X-POOTLE-MTIME: 1487457173.000000\n"
 
 #: activity/activity.info:2
 msgid "Arithmetic"
@@ -39,7 +40,7 @@ msgstr ""
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:206
 msgid "Difficulty: "
-msgstr "Svårighetsgrad:"
+msgstr "Svårighetsgrad: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:207
 msgid "Period: "
@@ -47,27 +48,27 @@ msgstr ""
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:209
 msgid "Puzzles: "
-msgstr "Pussel:"
+msgstr "Pussel: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:210
 msgid "Question: "
-msgstr "Fråga:"
+msgstr "Fråga: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:211
 msgid "Answer: "
-msgstr "Svar:"
+msgstr "Svar: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:212
 msgid "You were: "
-msgstr "Du var:"
+msgstr "Du var: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:213
 msgid "Last round: "
-msgstr "Senaste omgången:"
+msgstr "Senaste omgången: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:215
 msgid "Time until next question: "
-msgstr "Tid till nästa fråga:"
+msgstr "Tid till nästa fråga: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:383
 msgid "Correct!"
