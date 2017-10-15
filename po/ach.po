@@ -1,79 +1,79 @@
-# Arithmetic 
-# Copyright (C) 2009 
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Chris Ball <cjb@laptop.org>
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-09 13:19-0400\n"
-"PO-Revision-Date: 2017-03-26 12:04+0000\n"
-"Last-Translator: Anders <anders.jonsson@norsjovallen.se>\n"
+"PO-Revision-Date: 2017-03-14 09:52+0000\n"
+"Last-Translator: denish <mofistone@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: sv\n"
+"Language: ach\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.1.1\n"
-"X-POOTLE-MTIME: 1490529887.000000\n"
+"X-POOTLE-MTIME: 1489485165.000000\n"
 
 #: activity/activity.info:2
 msgid "Arithmetic"
-msgstr "Aritmetik"
+msgstr "Cura"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:173
 msgid "Name"
-msgstr "Namn"
+msgstr "Nying"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:174
 msgid "Round score"
-msgstr "Omgångspoäng"
+msgstr "Gin onwongere"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:175
 msgid "Total score"
-msgstr "Totalpoäng"
+msgstr "Gin onwongere ducu"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:176
 msgid "Time for answering last question"
-msgstr "Tid för att besvara senaste frågan"
+msgstr "Cawa me miyo anca me agiki"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:206
 msgid "Difficulty: "
-msgstr "Svårighetsgrad: "
+msgstr "Igingo: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:207
 msgid "Period: "
-msgstr "Period: "
+msgstr "Cawa me aluba: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:209
 msgid "Puzzles: "
-msgstr "Pussel: "
+msgstr "Tuku me adam: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:210
 msgid "Question: "
-msgstr "Fråga: "
+msgstr "Lapeny: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:211
 msgid "Answer: "
-msgstr "Svar: "
+msgstr "Lagam: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:212
 msgid "You were: "
-msgstr "Du var: "
+msgstr "Onongo i: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:213
 msgid "Last round: "
-msgstr "Senaste omgången: "
+msgstr "Tyen ma okato: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:215
 msgid "Time until next question: "
-msgstr "Tid till nästa fråga: "
+msgstr "Cawa me oo i lapeny malubo: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:383
 msgid "Correct!"
-msgstr "Rätt!"
+msgstr "Kakare!"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:392
 msgid "Not correct"
-msgstr "Inte rätt"
+msgstr "Pe kakare"
