@@ -1,7 +1,10 @@
 [Activity]
 name = Arithmetic
 activity_version = 2
-service_name = org.laptop.Arithmetic
+license = GPLv2+;GPLv3+
+bundle_id = org.laptop.Arithmetic
 exec = sugar-activity arithmetic.ArithmeticActivity -s
 icon = activity-arithmetic
-license = GPLv2+
+summary = 
+repository = https://github.com/sugarlabs/arithmetic/
+tags = Maths
