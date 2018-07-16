@@ -5,7 +5,6 @@ license = GPLv3+;GPLv2+
 bundle_id = org.laptop.Arithmetic
 exec = sugar-activity arithmetic.ArithmeticActivity -s
 icon = activity-arithmetic
-summary =  Learners to compete in mathematics
-challenges performing addition, subtraction, multiplication or division that checked and timed. The results are presented on a scoreboard.
+summary =  Learners to compete in mathematics challenges performing addition, subtraction, multiplication or division that checked and timed. The results are presented on a scoreboard.
 repository = https://github.com/sugarlabs/arithmetic/
 tags = Maths
