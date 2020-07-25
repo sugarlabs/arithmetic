@@ -7,7 +7,7 @@
 # (at your option) any later version.
 """Arithmetic Activity: A quiz activity for arithmetic."""
 
-from __future__ import with_statement
+
 import sys, cgitb
 
 cgitb.enable(format="plain")
@@ -420,7 +420,7 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
                                    GObject.TYPE_INT,    # total score
                                    GObject.TYPE_FLOAT)  # time for last question
 
-        for person, score in self.scoreboard.iteritems():
+        for person, score in list(self.scoreboard.items()):
             self.model.append(None, (person, score.last_score, score.cumulative_score, score.last_time))
 
         self.treeview.set_model(self.model)
@@ -497,7 +497,7 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
 
                 env_global = {}
                 env_local = {}
-                exec text in env_global, env_local
+                exec(text, env_global, env_local)
 
                 togglename = hash + "_toggle"
                 self.cloud[togglename] = groupthink.gtk_tools.SharedToggleButton(' ' + env_local['name'] + ' ')
