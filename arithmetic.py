@@ -19,7 +19,7 @@ gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 from gi.repository import Pango
 import random
-import gobject
+from gi.repository import GObject, GLib
 import math
 import time
 import os
@@ -156,10 +156,10 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
 
         # Scoreboard
         scorebox = Gtk.VBox()
-        self.model = Gtk.TreeStore(gobject.TYPE_STRING, # name
-                                   gobject.TYPE_INT,    # last round score
-                                   gobject.TYPE_INT,    # total score
-                                   gobject.TYPE_FLOAT)  # time for last question
+        self.model = Gtk.TreeStore(GObject.TYPE_STRING, # name
+                                   GObject.TYPE_INT,    # last round score
+                                   GObject.TYPE_INT,    # total score
+                                   GObject.TYPE_FLOAT)  # time for last question
         self.treeview = treeview = Gtk.TreeView(self.model)
         cellrenderer = Gtk.CellRendererText()
         col1 = Gtk.TreeViewColumn(_("Name"), cellrenderer, text=0)
@@ -399,7 +399,7 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
 
     def start_countdown(self):
         self.secondsleft = self.period
-        gobject.timeout_add(1000, self.onesecond_cb)
+        GLib.timeout_add(1000, self.onesecond_cb)
         self.countdownlabel.set_markup(' <span size="xx-large">%s</span>s' % self.secondsleft)
 
     def onesecond_cb(self):
@@ -415,10 +415,10 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
             self.start_question()
             self.answerentry.set_text("")
 
-        self.model = Gtk.TreeStore(gobject.TYPE_STRING, # name
-                                   gobject.TYPE_INT,    # last round score
-                                   gobject.TYPE_INT,    # total score
-                                   gobject.TYPE_FLOAT)  # time for last question
+        self.model = Gtk.TreeStore(GObject.TYPE_STRING, # name
+                                   GObject.TYPE_INT,    # last round score
+                                   GObject.TYPE_INT,    # total score
+                                   GObject.TYPE_FLOAT)  # time for last question
 
         for person, score in self.scoreboard.iteritems():
             self.model.append(None, (person, score.last_score, score.cumulative_score, score.last_time))
