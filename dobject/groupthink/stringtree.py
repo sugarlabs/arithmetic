@@ -202,7 +202,7 @@ class EagerHideList:
         plast = self._sourcelist[position+length-1]
         ifirst = self._posmap[pfirst]
         ilast = self._posmap[plast]
-        for i in xrange(ifirst, ilast+1):
+        for i in range(ifirst, ilast+1):
             L = self._poslist[i]
             L[1] = False #No longer visible, if it was visible before
             L[2] = position #collapse positions
@@ -238,11 +238,11 @@ class EagerHideList:
                 newlistsource.append(elt)
                 i += 1
         self._poslist[position:position] = newlist
-        for i in xrange(position,position+length):
+        for i in range(position,position+length):
             L = self._poslist[i]
             self._posmap[L[0]] = i
         num_viz = len(newlistsource)
-        for i in xrange(position+length,len(self._poslist)):
+        for i in range(position+length,len(self._poslist)):
             L = self._poslist[i]
             L[2] += num_viz
             self._posmap[L[0]] = i
@@ -253,7 +253,7 @@ class EagerHideList:
         
     def _check_invariants(self):
         assert len(self._posmap) == len(self._poslist)
-        for i in xrange(len(self._poslist)):
+        for i in range(len(self._poslist)):
             assert self._posmap[self._poslist[i][0]] == i
             if self._poslist[i][1]:
                 assert self._sourcelist[self._poslist[i][2]] == self._poslist[i][0]
@@ -325,7 +325,7 @@ class SimpleStringTree:
             self.insert(initstring, 0)
     
     def __repr__(self):
-        return "\n".join((str(v) for v in self._id2rec.values()))
+        return "\n".join((str(v) for v in list(self._id2rec.values())))
     
     def getvalue(self, r = None):
         if r is None:
@@ -333,7 +333,7 @@ class SimpleStringTree:
         s = "".join(self._id2rec[x[0]].change.edit.text[x[1]] for x in self._listing)
         return s
     
-    def next(self):
+    def __next__(self):
         raise
     
     def flush(self):
@@ -558,7 +558,7 @@ class SimpleStringTree:
             flist = []
             start = None
             end = None
-            for i in xrange(c.edit.position,c.edit.position + c.edit.length):
+            for i in range(c.edit.position,c.edit.position + c.edit.length):
                 p = (c.parent, i)
                 if self._listing.is_visible_item(p):
                     q = self._listing.index(p)
@@ -610,7 +610,7 @@ class SimpleStringTree:
     def _insert_listonly(self, uid, target, length):
         """Make a new insertion into the lists with uid and length at position
         in _poslist"""
-        elts = [(uid,i) for i in xrange(length+1)]
+        elts = [(uid,i) for i in range(length+1)]
         visibility = [True] * length
         visibility.append(False)
         self._listing.insert_sequence_leftof(target, elts, visibility)

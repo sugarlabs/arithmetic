@@ -42,6 +42,6 @@ def undbox(x):
     elif isinstance(x, (dbus.Array, list)):
         return [undbox(y) for y in x]
     elif isinstance(x, (dbus.Dictionary, dict)):
-        return dict((undbox(a),undbox(b)) for (a,b) in x.iteritems())
+        return dict((undbox(a),undbox(b)) for (a,b) in x.items())
     else:
         return x

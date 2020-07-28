@@ -11,11 +11,11 @@ from dbus.gi_service import ExportedGObject
 import time
 import logging
 import threading
-import thread
+import _thread
 import random
 from .listset import ListSet
 from dobject.groupthink import stringtree
-import cPickle
+import pickle
 from dobject.groupthink import dbus_tools
 
 def PassFunction(*args,**kargs):
@@ -138,10 +138,10 @@ class Group:
             associated with the group.
         """
         d = {}
-        for (name, handler) in self._handlers.iteritems():
+        for (name, handler) in self._handlers.items():
             d[name] = dbus_tools.undbox(handler.object.get_history())
         d.update(self._history) #Include any "unclaimed history" thus far.
-        return cPickle.dumps(d)
+        return pickle.dumps(d)
     
     def loads(self, s):
         """
@@ -154,8 +154,8 @@ class Group:
         @param s: the output of L{dumps}
         """
         if s:
-            d = cPickle.loads(s)
-            for (name,hist) in d.iteritems():
+            d = pickle.loads(s)
+            for (name,hist) in d.items():
                 if name in self._d:
                     handler = self._handlers[name]
                     handler.object.add_history(hist)
@@ -302,7 +302,7 @@ class TimeHandler(ExportedGObject):
     def receive_time(self, asktime, start_time, finish_time):
         self._logger.debug("receive_time")
         rtime = time.time()
-        thread.start_new_thread(self._handle_incoming_time, (asktime, start_time, finish_time, rtime))
+        _thread.start_new_thread(self._handle_incoming_time, (asktime, start_time, finish_time, rtime))
     
     def _handle_incoming_time(self, ask, start, finish, receive):
         self._offset_lock.acquire()
@@ -421,7 +421,7 @@ class UnorderedHandler(ExportedGObject):
             self._logger.debug("got history, initiating transfer")
             remote.receive_history(h, reply_handler=PassFunction, error_handler=PassFunction)
             self._logger.debug("history transfer initiated")
-        except Exception, E:
+        except Exception as E:
             self._logger.debug("tell_history failed: " % repr(E))
         finally:
             return
@@ -1449,7 +1449,7 @@ class CausalDict(CausalObject):
         d = dict()
         d.update(*args,**kargs)
         newpairs = []
-        for p in d.items():
+        for p in list(d.items()):
             if (p[0] not in self._dict) or (self._dict[p[0]] != p[1]):
                 newpairs.append(p)
                 self._dict[p[0]] = p[1]
@@ -1484,7 +1484,7 @@ class CausalDict(CausalObject):
                             del self._dict[key]
                 elif flag == CausalDict.CLEAR:
                     self._clear = n
-                    for (k, ind) in self._index_dict.items():
+                    for (k, ind) in list(self._index_dict.items()):
                         if ind < self._clear:
                             del self._index_dict[k]
                             if k in self._dict:
@@ -1495,8 +1495,8 @@ class CausalDict(CausalObject):
 
     def get_history(self):
         c = self.handler.index_trans(self._clear, True)
-        d = dbus.Array([(self._key_trans(p[0], True), self._val_trans(p[1], True)) for p in self._dict.items()])
-        i = dbus.Array([(self._key_trans(p[0], True), self.handler.index_trans(p[1], True)) for p in self._index_dict.items()])
+        d = dbus.Array([(self._key_trans(p[0], True), self._val_trans(p[1], True)) for p in list(self._dict.items())])
+        i = dbus.Array([(self._key_trans(p[0], True), self.handler.index_trans(p[1], True)) for p in list(self._index_dict.items())])
         return dbus.Struct((c,d,i),signature='itt')
     
     def add_history(self, hist):
@@ -1509,7 +1509,7 @@ class CausalDict(CausalObject):
         
         if c > self._clear:
             self._clear = c
-            for (k, n) in self._index_dict.items():
+            for (k, n) in list(self._index_dict.items()):
                 if n < self._clear:
                     del self._index_dict[k]
                     if k in self._dict:
@@ -1878,7 +1878,7 @@ class CausalTree(CausalObject):
                 #cmd[1] is an unknown node, so this command should be ignored
                 return ()
         elif cmd[0] == self.CLEAR:
-            deleted = self._parent.keys() #relies on self.ROOT not being in _parent
+            deleted = list(self._parent.keys()) #relies on self.ROOT not being in _parent
             cmds = []
             stack = [self.ROOT]
             while len(stack) > 0:

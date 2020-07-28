@@ -9,12 +9,12 @@ class SquareCompare:
                  numboxes = NUMBOXES):
         self.numboxes = numboxes
         self._boxes = [((xsize-1)*random(), (ysize-1)*random())
-                                                     for i in xrange(numboxes)]
+                                                     for i in range(numboxes)]
     
     def compute_overlaps_simple(self):
         overlaps = dict()
-        for i in xrange(self.numboxes):
-            for j in xrange(i+1, self.numboxes):
+        for i in range(self.numboxes):
+            for j in range(i+1, self.numboxes):
                 d = self.distance(i,j)
                 if d[0] != 0 and d[1] != 0:
                     overlaps[(i,j)] = d
@@ -41,7 +41,7 @@ class SquareCompare:
     def compute_overlaps_complex(self):
         overlaps = dict()
         fancy = Overlap2D()
-        for i in xrange(self.numboxes):
+        for i in range(self.numboxes):
             box = self._boxes[i]
             x1 = box[0]
             x2 = x1 + 1

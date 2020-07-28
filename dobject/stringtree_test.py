@@ -1,29 +1,29 @@
 import dobject.groupthink.stringtree as stringtree
 import random
-import StringIO
+import io
 
 x = stringtree.SimpleStringTree("base")
 x.seek(2)
 x.insert('ABC')
-print x.getvalue()
+print(x.getvalue())
 x.seek(5)
 x.insert("123")
-print x.getvalue()
+print(x.getvalue())
 x.insert("#$%",4)
-print x.getvalue()
+print(x.getvalue())
 x.delete(5,4)
-print x.getvalue()
+print(x.getvalue())
 x.move(2,3,7)
-print x.getvalue()
+print(x.getvalue())
 
 def randstring(N=5):
-    return "".join((random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890') for i in xrange(N)))
+    return "".join((random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890') for i in range(N)))
 
  
 b = randstring(10)
 x = stringtree.SimpleStringTree(b)
-y = StringIO.StringIO(b)
-for i in xrange(100):
+y = io.StringIO(b)
+for i in range(100):
     #print(i)
     xs = x.getvalue()
     ys = y.getvalue()
@@ -32,8 +32,8 @@ for i in xrange(100):
     for c in cs:
         z.add_change(c)
     zs = z.getvalue()
-    print(xs, x.tell())
-    print(ys, y.tell())
+    print((xs, x.tell()))
+    print((ys, y.tell()))
     print(zs)
     if not (xs == ys == zs):
         raise
@@ -50,7 +50,7 @@ for i in xrange(100):
 
 # Linear performance test
 z = stringtree.SimpleStringTree()
-for i in xrange(10000):
+for i in range(10000):
     print(i)
     z.insert("a",i)
     z.delete(i,1)

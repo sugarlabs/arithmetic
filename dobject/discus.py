@@ -55,8 +55,8 @@ def findpos(a, b, r, bounds=None, float_r=True):
     # between any two centers) onto (the vector connecting their ideal locations)
     # must not be shorter than the sum of their radii
     c = 0
-    for i in xrange(N):
-        for j in xrange(i+1, N):
+    for i in range(N):
+        for j in range(i+1, N):
             dx = a[i]-a[j]
             dy = b[i]-b[j]
             d = sqrt(dx*dx + dy*dy)
@@ -94,7 +94,7 @@ def findpos(a, b, r, bounds=None, float_r=True):
     
     if float_r:
         # Place upper and lower bounds on each radius
-        for i in xrange(N):
+        for i in range(N):
             x.append(1)
             I.append(c)
             J.append(i + 2*N)
@@ -114,7 +114,7 @@ def findpos(a, b, r, bounds=None, float_r=True):
             ubx = bounds[1]
             lby = bounds[2]
             uby = bounds[3]
-            for i in xrange(N):
+            for i in range(N):
                 x.append(-1)
                 I.append(c)
                 J.append(i)
@@ -165,7 +165,7 @@ def findpos(a, b, r, bounds=None, float_r=True):
             ubx = bounds[1]
             lby = bounds[2]
             uby = bounds[3]
-            for i in xrange(N):
+            for i in range(N):
                 x.append(-1)
                 I.append(c)
                 J.append(i)

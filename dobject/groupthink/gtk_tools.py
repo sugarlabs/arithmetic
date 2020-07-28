@@ -114,18 +114,18 @@ class SharedTreeStore(groupthink.CausalHandlerAcceptor, Gtk.GenericTreeModel):
             self._columndicts = [groupthink.CausalDict(
                                 key_translator = self._causaltree.node_trans,
                                 value_translator = translators[i])
-                                for i in xrange(len(translators))]
+                                for i in range(len(translators))]
         else:
             self._columndicts = [groupthink.CausalDict(
                                 key_translator = self._causaltree.node_trans)
-                                for i in xrange(len(translators))]
+                                for i in range(len(translators))]
         self._causaltree.register_listener(self._tree_listener)
-        for i in xrange(len(self._columndicts)):
+        for i in range(len(self._columndicts)):
             self._columndicts[i].register_listener(self._generate_dictlistener(i))
                                 
     def set_handler(self, handler):
         self._causaltree.set_handler(handler)
-        for i in xrange(len(self._columndicts)):
+        for i in range(len(self._columndicts)):
             #Make a new handler for each columndict
             #Not very future-proof: how do we serialize out and reconstitute
             #objects that GroupActivity.cloud is not even aware of?
@@ -218,8 +218,8 @@ class SharedTreeStore(groupthink.CausalHandlerAcceptor, Gtk.GenericTreeModel):
     
     def _dict_listener(self, i, added, removed):
         s = set()
-        s.update(added.keys())
-        s.update(removed.keys())
+        s.update(list(added.keys()))
+        s.update(list(removed.keys()))
         for node in s:
             path = self.on_get_path(node)
             if path is not None:
@@ -298,7 +298,7 @@ class SharedTreeStore(groupthink.CausalHandlerAcceptor, Gtk.GenericTreeModel):
         self._columndicts[i][node] = value
     
     def set(self, it, *args):
-        for i in xrange(0,len(args),2):
+        for i in range(0,len(args),2):
             self.set_value(it,args[i],args[i+1])
     
     def remove(self, it):
@@ -318,7 +318,7 @@ class SharedTreeStore(groupthink.CausalHandlerAcceptor, Gtk.GenericTreeModel):
             if len(row) != len(columndicts):
                 raise IndexError("row had the wrong length")
             else:
-                for i in xrange(len(row)):
+                for i in range(len(row)):
                     self._columndicts[i][node] = row[i]
         return self.create_tree_iter(node)
     

@@ -197,7 +197,7 @@ class ListSet:
     def __len__(self):
         return len(self._list)
     
-    def __nonzero__(self):
+    def __bool__(self):
         #ugly, but faster than bool(self_list)
         return not not self._list
     
@@ -384,11 +384,11 @@ class ListSet:
     
     def iterslice(self, slic):
         L = len(self._list)
-        return (self._list[i] for i in xrange(*slic.indices(L)))
+        return (self._list[i] for i in range(*slic.indices(L)))
     
     def subiter(self, x, y, includehead=True, includetail=False, i=0, j=-1):
         (a,b) = self._subrange(x, y, includehead, includetail, i, j)
-        return (self._list[i] for i in xrange(a,b))
+        return (self._list[i] for i in range(a,b))
     
     def first(self):
         return self._list[0]
@@ -485,7 +485,7 @@ class ListDict:
         return self._dict.__hash__()
     
     def __iter__(self):
-        return self.iterkeys()
+        return iter(self.keys())
     
     def __le__(self, d):
         if isinstance(d, ListDict):
@@ -508,7 +508,7 @@ class ListDict:
         else:
             return self._dict != d
     
-    def __nonzero__(self):
+    def __bool__(self):
         return not not self._dict
     
     def __setitem__(self, k, v):
@@ -523,7 +523,7 @@ class ListDict:
         return self._dict.get(k, d)
     
     def has_key(self, k):
-        return self._dict.has_key(k)
+        return k in self._dict
     
     def items(self, *args, **kwargs):
         if not (args or kwargs):
@@ -580,7 +580,7 @@ class ListDict:
            self._dict.update(E._dict)
         else:
            try:
-               keys = E.keys()
+               keys = list(E.keys())
                self._set.update(keys)
                self._dict.update(E)
            except:

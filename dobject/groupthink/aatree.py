@@ -396,7 +396,7 @@ class MonoidTree:
                 n2.parent = newnode
                 self._update_add(newnode, sentinel)
                 nodes.append(newnode)            
-            for i in xrange(0,L,2):
+            for i in range(0,L,2):
                 n1,n2 = nodes[i:(i+2)]
                 newnode = self.makenode()
                 newnode.parent=sentinel #totally arbitrary constant
@@ -617,7 +617,7 @@ class TreeHideList:
                 return [n.value for n in nodes]
             else:
                 #FIXME: runs in k*log(N), could be reduced to k*log(step) + log(N)
-                return [self[i] for i in xrange(start,stop,stride)]
+                return [self[i] for i in range(start,stop,stride)]
     def index(self, v, visible=True):
         """index returns some index such that self[i] == v.  No promises about ordering."""
         self._walker.prepare_ascend(0 if visible else 1)
@@ -629,7 +629,7 @@ class TreeHideList:
         #self.__getitem__ is eager, so we acquire the list of nodes before
         #acting on them
         node = self._getnode(position,0)
-        for i in xrange(position+1,position+length):
+        for i in range(position+1,position+length):
             self._tree.change_annotation(node,(0,1))
             node = self._tree.getnext(node, self.skip)
         self._tree.change_annotation(node,(0,1))
@@ -641,7 +641,7 @@ class TreeHideList:
             return node.value
         else:
             #FIXME: runs in k*log(N), could be reduced to k + log(N) by linked list
-            return [self.getitem_all(i) for i in xrange(*s.indices())]
+            return [self.getitem_all(i) for i in range(*s.indices())]
     def index_all(self, item):
         return self.index(item, False)
     def is_visible(self, i):
@@ -657,7 +657,7 @@ class TreeHideList:
         node = self._index_lookup(target)
         self._insert_sequence_leftofnode(node, sequence, visibility)
     def _insert_sequence_leftofnode(self, node, sequence, visibility):
-        for i in xrange(len(sequence)):
+        for i in range(len(sequence)):
             v = sequence[i]
             viz = visibility[i]
             newnode = self._makenode()
