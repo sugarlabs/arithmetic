@@ -1,9 +1,10 @@
 """
 a module to make sharing easier in Sugar Activities.
 """
-
+import gi
+gi.require_version('TelepathyGLib','0.12')
 import logging
-import telepathy
+from gi.repository import TelepathyGLib
 
 from sugar3.activity.activity import Activity
 from sugar3.activity.widgets import ActivityToolbar
@@ -201,7 +202,7 @@ class GroupActivity(Activity):
         self._sharing_setup()
 
         self.logger.debug('This is my activity: making a tube...')
-        id = self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES].OfferDBusTube(
+        id = self.tubes_chan[TelepathyGLib.IFACE_CHANNEL_TYPE_TUBES].OfferDBusTube(
             self.dbus_name, {})
         self.when_initiating_sharing()
 
@@ -214,7 +215,7 @@ class GroupActivity(Activity):
         self.tubes_chan = self._shared_activity.telepathy_tubes_chan
         self.text_chan = self._shared_activity.telepathy_text_chan
 
-        self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES].connect_to_signal('NewTube',
+        self.tubes_chan[TelepathyGLib.IFACE_CHANNEL_TYPE_TUBES].connect_to_signal('NewTube',
             self._new_tube_cb)
 
     def _list_tubes_reply_cb(self, tubes):
@@ -234,7 +235,7 @@ class GroupActivity(Activity):
         self._sharing_setup()
 
         self.logger.debug('This is not my activity: waiting for a tube...')
-        self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES].ListTubes(
+        self.tubes_chan[TelepathyGLib.IFACE_CHANNEL_TYPE_TUBES].ListTubes(
             reply_handler=self._list_tubes_reply_cb,
             error_handler=self._list_tubes_error_cb)
 
@@ -242,13 +243,13 @@ class GroupActivity(Activity):
         self.logger.debug('New tube: ID=%d initator=%d type=%d service=%s '
                      'params=%r state=%d', id, initiator, type, service,
                      params, state)
-        if (type == telepathy.TUBE_TYPE_DBUS and
+        if (type == TelepathyGLib.TubeType.DBUS and
             service == self.dbus_name):
-            if state == telepathy.TUBE_STATE_LOCAL_PENDING:
-                self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES].AcceptDBusTube(id)
+            if state == TelepathyGLib.TubeState.LOCAL_PENDING:
+                self.tubes_chan[TelepathyGLib.IFACE_CHANNEL_TYPE_TUBES].AcceptDBusTube(id)
             tube_conn = TubeConnection(self.conn,
-                self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES],
-                id, group_iface=self.text_chan[telepathy.CHANNEL_INTERFACE_GROUP])
+                self.tubes_chan[TelepathyGLib.IFACE_CHANNEL_TYPE_TUBES],
+                id, group_iface=self.text_chan[TelepathyGLib.IFACE_CHANNEL_INTERFACE_GROUP])
             self.tubebox.insert_tube(tube_conn, self.initiating)
             self._sharing_completed = True
             if self._readfile_completed and not self.initialized:
