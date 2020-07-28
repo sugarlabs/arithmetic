@@ -484,7 +484,7 @@ class ListDict:
     def __hash__(self):
         return self._dict.__hash__()
     
-    def __iter__():
+    def __iter__(self):
         return self.iterkeys()
     
     def __le__(self, d):

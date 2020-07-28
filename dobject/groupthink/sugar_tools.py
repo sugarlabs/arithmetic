@@ -5,20 +5,21 @@ a module to make sharing easier in Sugar Activities.
 import logging
 import telepathy
 
-from sugar.activity.activity import Activity, ActivityToolbox
-from sugar.presence import presenceservice
+from sugar3.activity.activity import Activity
+from sugar3.activity.widgets import ActivityToolbar
+from sugar3.presence import presenceservice
 
-from sugar.presence.tubeconn import TubeConnection
-from sugar.graphics.window import Window
+from sugar3.presence.tubeconn import TubeConnection
+from sugar3.graphics.window import Window
 
-import gtk
+from gi.repository import Gtk,Gdk
 import gobject
 
 from dobject.groupthink import groupthink_base as groupthink
 
 def exhaust_event_loop():
-    while gtk.events_pending():
-        gtk.main_iteration()
+    while Gtk.events_pending():
+        Gtk.main_iteration()
 
 class GroupActivity(Activity):
     """
@@ -80,12 +81,12 @@ class GroupActivity(Activity):
             self.message = self.message_preparing
 
         # top toolbar with share and close buttons:
-        toolbox = ActivityToolbox(self)
+        toolbox = ActivityToolbar(self)
         self.set_toolbox(toolbox)
         toolbox.show()
         
-        v = gtk.VBox()
-        self.startup_label = gtk.Label(self.message)
+        v = Gtk.VBox()
+        self.startup_label = Gtk.Label(self.message)
         v.pack_start(self.startup_label)
         Window.set_canvas(self,v)
         self.show_all()
@@ -122,7 +123,7 @@ class GroupActivity(Activity):
             else:
                 self._joined_cb(self)
         
-        self.add_events(gtk.gdk.VISIBILITY_NOTIFY_MASK)
+        self.add_events(Gdk.EventMask.VISIBILITY_NOTIFY_MASK)
         self.connect("visibility-notify-event", self._visible_cb)
         self.connect("notify::active", self._active_cb)
         
@@ -312,7 +313,7 @@ class GroupActivity(Activity):
             
     def _visible_cb(self, widget, event):
         self.logger.debug("_visible_cb")
-        if event.state == gtk.gdk.VISIBILITY_FULLY_OBSCURED:
+        if event.state == Gdk.VisibilityState.FULLY_OBSCURED:
             self.pause()
         else:
             self.resume()

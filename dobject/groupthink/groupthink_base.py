@@ -1444,7 +1444,7 @@ class CausalDict(CausalObject):
             n = self.handler.send(dbus.Array([(dbus.Int32(CausalDict.ADD), self._key_trans(key, True), self._val_trans(value, True))]))
         self._index_dict[key] = n
     
-    def update(*args,**kargs):
+    def update(self, *args,**kargs):
         """Same as for dict"""
         d = dict()
         d.update(*args,**kargs)

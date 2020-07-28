@@ -8,12 +8,13 @@ helper classes to allow you to build your own shared widgets.
 Most of the classes here are L{HandlerAcceptor}s, meaning that they can easily
 be shared by assigning them to a properly configured L{Group}.
 """
-import gtk
+from gi.repository import Gtk,Gdk
 from dobject.groupthink import groupthink_base as groupthink
 import logging
 from dobject.groupthink import stringtree
 
-class RecentEntry(groupthink.UnorderedHandlerAcceptor, gtk.Entry):
+
+class RecentEntry(groupthink.UnorderedHandlerAcceptor, Gtk.Entry):
     """
     RecentEntry is an extension of gtk.Entry that, when attached to a group,
     creates a unified Entry field for all participants.  It is implemented using
@@ -23,9 +24,9 @@ class RecentEntry(groupthink.UnorderedHandlerAcceptor, gtk.Entry):
         """
         All arguments to __init__ are passed directly to gtk.Entry.__init__
         """
-        gtk.Entry.__init__(self, *args, **kargs)
+        Gtk.Entry.__init__(self, *args, **kargs)
         self.logger = logging.getLogger('RecentEntry')
-        self.add_events(gtk.gdk.PROPERTY_CHANGE_MASK)
+        self.add_events(Gdk.EventMask.PROPERTY_CHANGE_MASK)
         self._text_changed_handler = self.connect('changed', self._local_change_cb)
         self._recent = groupthink.Recentest(self.get_text(), groupthink.string_translator)
         self._recent.register_listener(self._remote_change_cb)
@@ -48,16 +49,17 @@ class RecentEntry(groupthink.UnorderedHandlerAcceptor, gtk.Entry):
             self.set_text(text)
             self.handler_unblock(self._text_changed_handler)
 
-class SharedToggleButton(groupthink.UnorderedHandlerAcceptor, gtk.ToggleButton):
+
+class SharedToggleButton(groupthink.UnorderedHandlerAcceptor, Gtk.ToggleButton):
     """SharedToggleButton is an extension of gtk.ToggleButton that, when attached
      to a group, creates a unified ToggleButton for all participants."""
     def __init__(self, *args, **kargs):
         """
         All arguments to __init__ are passed directly to gtk.ToggleButton.__init__
         """
-        gtk.ToggleButton.__init__(self, *args, **kargs)
+        Gtk.ToggleButton.__init__(self, *args, **kargs)
         self.logger = logging.getLogger('SharedToggleButton')
-        self.add_events(gtk.gdk.PROPERTY_CHANGE_MASK)
+        self.add_events(Gdk.EventMask.PROPERTY_CHANGE_MASK)
         self._change_handler = self.connect('toggled', self._local_change_cb)
         self._recent = groupthink.Recentest(self.get_active(), groupthink.bool_translator)
         self._recent.register_listener(self._remote_change_cb)
@@ -81,7 +83,7 @@ class SharedToggleButton(groupthink.UnorderedHandlerAcceptor, gtk.ToggleButton):
             self.handler_unblock(self._change_handler)
 
 
-class SharedTreeStore(groupthink.CausalHandlerAcceptor, gtk.GenericTreeModel):
+class SharedTreeStore(groupthink.CausalHandlerAcceptor, Gtk.GenericTreeModel):
     """
     WARNING: SharedTreeStore is UNTESTED and probably does not work.
     
@@ -133,7 +135,7 @@ class SharedTreeStore(groupthink.CausalHandlerAcceptor, gtk.GenericTreeModel):
     ### Methods necessary to implement gtk.GenericTreeModel ###
 
     def on_get_flags(self):
-        return gtk.TREE_MODEL_ITERS_PERSIST
+        return Gtk.TreeModelFlags.ITERS_PERSIST
 
     def on_get_n_columns(self):
         return len(self._columntypes)
@@ -355,6 +357,7 @@ class SharedTreeStore(groupthink.CausalHandlerAcceptor, gtk.GenericTreeModel):
         p = self.get_user_data(newparent)
         self._causaltree.change_parent(node,p)
 
+
 class TextBufferUnorderedStringLinker:
     """
     Translates between a gtk.TextBuffer and a L{UnorderedString}.  This object
@@ -424,7 +427,8 @@ class TextBufferSharePoint(groupthink.UnorderedHandlerAcceptor):
     def set_handler(self, handler):
         self._us.set_handler(handler)
 
-class SharedTextView(groupthink.UnorderedHandlerAcceptor, gtk.TextView):
+
+class SharedTextView(groupthink.UnorderedHandlerAcceptor, Gtk.TextView):
     """
     SharedTextView is a network-shareable version of gtk.TextView.
     It provides a simple wrapper around L{TextBufferSharePoint}.
@@ -436,7 +440,7 @@ class SharedTextView(groupthink.UnorderedHandlerAcceptor, gtk.TextView):
         """
         All argument are passed directly to gtk.TextView.__init__
         """
-        gtk.TextView.__init__(self, *args, **kargs)
+        Gtk.TextView.__init__(self, *args, **kargs)
         self._link = TextBufferSharePoint(self.get_buffer())
         
     def set_handler(self, handler):

@@ -1,4 +1,4 @@
-from .listset import *
+from dobject.groupthink.listset import *
 from random import random
 
 class SquareCompare:
