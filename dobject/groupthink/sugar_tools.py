@@ -13,7 +13,7 @@ from sugar3.presence.tubeconn import TubeConnection
 from sugar3.graphics.window import Window
 
 from gi.repository import Gtk,Gdk
-import gobject
+from gi.repository import GLib
 
 from dobject.groupthink import groupthink_base as groupthink
 
@@ -130,7 +130,7 @@ class GroupActivity(Activity):
         if not self._readfile_completed:
             self.read_file(self._jobject.file_path)
         elif not self._shared_activity:
-            gobject.idle_add(self._initialize_cleanstart)
+            GLib.idle_add(self._initialize_cleanstart)
     
     def _initialize_cleanstart(self):
         self.initialize_cleanstart()
