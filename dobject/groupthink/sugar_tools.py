@@ -14,7 +14,7 @@ from sugar.graphics.window import Window
 import gtk
 import gobject
 
-import groupthink_base as groupthink
+from dobject.groupthink import groupthink_base as groupthink
 
 def exhaust_event_loop():
     while gtk.events_pending():

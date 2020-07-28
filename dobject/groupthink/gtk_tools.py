@@ -9,9 +9,9 @@ Most of the classes here are L{HandlerAcceptor}s, meaning that they can easily
 be shared by assigning them to a properly configured L{Group}.
 """
 import gtk
-import groupthink_base as groupthink
+from dobject.groupthink import groupthink_base as groupthink
 import logging
-import stringtree
+from dobject.groupthink import stringtree
 
 class RecentEntry(groupthink.UnorderedHandlerAcceptor, gtk.Entry):
     """

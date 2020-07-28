@@ -1,4 +1,4 @@
-import groupthink.stringtree as stringtree
+import dobject.groupthink.stringtree as stringtree
 import random
 import StringIO
 

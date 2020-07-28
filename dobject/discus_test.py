@@ -1,4 +1,4 @@
-from discus import findpos
+from .discus import findpos
 from random import randint
 
 print findpos([100, -100], [0,0], [500,400])

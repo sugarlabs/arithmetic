@@ -13,10 +13,10 @@ import logging
 import threading
 import thread
 import random
-from listset import ListSet
-import stringtree
+from .listset import ListSet
+from dobject.groupthink import stringtree
 import cPickle
-import dbus_tools
+from dobject.groupthink import dbus_tools
 
 def PassFunction(*args,**kargs):
     logging.debug("args=%s, kargs=%s" % (str(args),str(kargs)))

@@ -1,4 +1,4 @@
-import groupthink
+from dobject import groupthink
 x = groupthink.CausalTree()
 t = groupthink.TubeBox()
 h = groupthink.CausalHandler('qwer',t)

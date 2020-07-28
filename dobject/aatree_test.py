@@ -1,4 +1,4 @@
-from groupthink.aatree import *
+from .groupthink.aatree import *
 x = TreeList()
 y = AATreeList()
 

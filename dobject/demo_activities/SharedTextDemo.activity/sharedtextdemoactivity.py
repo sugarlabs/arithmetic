@@ -1,4 +1,4 @@
-from groupthink import sugar_tools, gtk_tools
+from dobject.groupthink import sugar_tools, gtk_tools
 import sugar
 import gtk
 

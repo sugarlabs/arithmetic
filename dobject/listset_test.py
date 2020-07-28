@@ -1,4 +1,4 @@
-from listset import *
+from .listset import *
 from random import random
 
 class SquareCompare:

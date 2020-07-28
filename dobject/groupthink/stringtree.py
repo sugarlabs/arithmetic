@@ -13,7 +13,7 @@ random.seed() #Works around some mysterious bug in the Journal or Rainbow that
 from collections import defaultdict
 import dbus # We do dbus (de)serialization in this file to minimize abstraction breakage
 import logging
-import aatree
+from dobject.groupthink import aatree
 
 inf = float('inf')
 
