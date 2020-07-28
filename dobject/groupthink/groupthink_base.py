@@ -7,7 +7,7 @@ groupthink.groupthink_base from application code.
 
 import dbus
 import dbus.service
-import dbus.gobject_service
+from dbus.gi_service import ExportedGObject
 import time
 import logging
 import threading
@@ -208,7 +208,7 @@ class TubeBox:
         for L in self._listeners:
             L(tube, is_initiator)
 
-class TimeHandler(dbus.gobject_service.ExportedGObject):
+class TimeHandler(ExportedGObject):
     """A TimeHandler provides a universal clock for a sharing instance.  It is a
     sort of cheap, decentralized synchronization system.  The TimeHandler 
     determines the offset between local time and group time by sending a
@@ -229,7 +229,7 @@ class TimeHandler(dbus.gobject_service.ExportedGObject):
 
     def __init__(self, name, tube_box, offset=0.0):
         self.PATH = TimeHandler.BASEPATH + name
-        dbus.gobject_service.ExportedGObject.__init__(self)
+        ExportedGObject.__init__(self)
         self._logger = logging.getLogger(self.PATH)
         self._tube_box = tube_box
         self.tube = None
@@ -311,7 +311,7 @@ class TimeHandler(dbus.gobject_service.ExportedGObject):
             self._know_offset = True
         self._offset_lock.release()
 
-class UnorderedHandler(dbus.gobject_service.ExportedGObject):
+class UnorderedHandler(ExportedGObject):
     """
     The UnorderedHandler serves as the interface between a local UnorderedObject
     (a pure python entity) and the d-bus/network system.  Each UnorderedObject
@@ -333,7 +333,7 @@ class UnorderedHandler(dbus.gobject_service.ExportedGObject):
         """
         self._myname = name
         self.PATH = UnorderedHandler.BASEPATH + name
-        dbus.gobject_service.ExportedGObject.__init__(self)
+        ExportedGObject.__init__(self)
         self._logger = logging.getLogger(self.PATH)
         self._tube_box = tube_box
         self.tube = None
@@ -1556,7 +1556,7 @@ class CausalDict(CausalObject):
         for L in self._listeners:
             L(added, removed)
 
-class UserDict(dbus.gobject_service.ExportedGObject):
+class UserDict(ExportedGObject):
     """UserDict is UNTESTED and almost certainly DOES NOT WORK.
     
     UserDict provides a dictionary mapping unique users to values.  Each user
@@ -1570,7 +1570,7 @@ class UserDict(dbus.gobject_service.ExportedGObject):
     def __init__(self, name, tubebox, myval, translator = empty_translator):
         self._myname = name
         self.PATH = UserDict.BASEPATH + name
-        dbus.gobject_service.ExportedGObject.__init__(self)
+        ExportedGObject.__init__(self)
         self._logger = logging.getLogger(self.PATH)
         self._tube_box = tube_box
         self.tube = None
