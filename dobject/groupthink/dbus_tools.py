@@ -8,7 +8,7 @@ inttypes = (dbus.Int16, dbus.Int32, dbus.Int64,
                   dbus.Byte, dbus.UInt16, dbus.UInt32, dbus.UInt64)
 booltypes = (dbus.Boolean)
 floattypes = (dbus.Double)
-strtypes = (dbus.ByteArray, dbus.String, dbus.UTF8String, dbus.Signature,
+strtypes = (dbus.ByteArray, dbus.String, dbus.Signature,
                    dbus.ObjectPath)
 
 def undbox(x):
