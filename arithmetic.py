@@ -179,7 +179,7 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
         self.model.set_value(self.olditer, 2, my_score.cumulative_score)
         self.model.set_value(self.olditer, 3, my_score.last_time)
         treeview.expand_all()
-        scorebox.pack_start(treeview)
+        scorebox.pack_start(treeview, True, True, 0)
 
         # Horizontal fields
         difficultybox = Gtk.HBox()
@@ -246,44 +246,44 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
         self.decisionentry.set_property("editable", False)
 
         # Packing
-        difficultybox.pack_start(difficultylabel, expand=False)
-        difficultybox.pack_start(self.cloud.easytoggle, expand=False)
-        difficultybox.pack_start(self.cloud.mediumtoggle, expand=False)
-        difficultybox.pack_start(self.cloud.hardtoggle, expand=False)
+        difficultybox.pack_start(difficultylabel, False, True, 0)
+        difficultybox.pack_start(self.cloud.easytoggle, False, True, 0)
+        difficultybox.pack_start(self.cloud.mediumtoggle, False, True, 0)
+        difficultybox.pack_start(self.cloud.hardtoggle, False, True, 0)
 
-        periodbox.pack_start(periodlabel, expand=False)
-        periodbox.pack_start(self.cloud.periodentry, expand=False)
-        periodbox.pack_start(periodunitslabel, expand=False)
+        periodbox.pack_start(periodlabel, False, True, 0)
+        periodbox.pack_start(self.cloud.periodentry, False, True, 0)
+        periodbox.pack_start(periodunitslabel, False, True, 0)
 
-        toprowbox.pack_start(difficultybox, expand=False)
-        toprowbox.pack_end(periodbox, expand=False)
+        toprowbox.pack_start(difficultybox, False, True, 0)
+        toprowbox.pack_end(periodbox, False, True, 0)
 
-        questionbox.pack_start(questionlabel, expand=False)
-        questionbox.pack_start(self.questionentry)
-        modebox.pack_start(modelabel, expand=False)
-        modebox.pack_start(self.inner_modebox)
-        answerbox.pack_start(answerlabel, expand=False)
-        answerbox.pack_start(self.answerentry)
-        decisionbox.pack_start(decisionlabel, expand=False)
-        decisionbox.pack_start(self.decisionentry)
+        questionbox.pack_start(questionlabel, False, True, 0)
+        questionbox.pack_start(self.questionentry, True, True, 0)
+        modebox.pack_start(modelabel, False, True, 0)
+        modebox.pack_start(self.inner_modebox, True, True, 0)
+        answerbox.pack_start(answerlabel, False, True, 0)
+        answerbox.pack_start(self.answerentry, True, True, 0)
+        decisionbox.pack_start(decisionlabel, False, True, 0)
+        decisionbox.pack_start(self.decisionentry, True, True, 0)
 
-        lastroundbox.pack_start(lastroundlabel, expand=False)
-        lastroundbox.pack_start(self.lastanswerlabel, expand=False)
+        lastroundbox.pack_start(lastroundlabel, False, True, 0)
+        lastroundbox.pack_start(self.lastanswerlabel, False, True, 0)
 
-        countdownbox.pack_start(staticcountdownlabel, expand=False)
-        countdownbox.pack_start(self.countdownlabel, expand=False)
+        countdownbox.pack_start(staticcountdownlabel, False, True, 0)
+        countdownbox.pack_start(self.countdownlabel, False, True, 0)
 
-        bottomrowbox.pack_start(countdownbox)
-        bottomrowbox.pack_end(lastroundbox)
+        bottomrowbox.pack_start(countdownbox, True, True, 0)
+        bottomrowbox.pack_end(lastroundbox, True, True, 0)
 
-        vbox.pack_start(toprowbox, expand=False)
-        vbox.pack_start(modebox, expand=False)
-        vbox.pack_start(questionbox, expand=False)
-        vbox.pack_start(answerbox, expand=False)
-        vbox.pack_start(decisionbox, expand=False)
-        vbox.pack_start(countdownbox, expand=False)
-        vbox.pack_start(bottomrowbox, expand=False)
-        vbox.pack_start(scorebox)
+        vbox.pack_start(toprowbox, False, True, 0)
+        vbox.pack_start(modebox, False, True, 0)
+        vbox.pack_start(questionbox, False, True, 0)
+        vbox.pack_start(answerbox, False, True, 0)
+        vbox.pack_start(decisionbox, False, True, 0)
+        vbox.pack_start(countdownbox, False, True, 0)
+        vbox.pack_start(bottomrowbox, False, True, 0)
+        vbox.pack_start(scorebox, True, True, 0)
 
         # Set defaults for questions.
         self.setup_puzzles()
@@ -518,4 +518,4 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
                 kids.sort(key=lambda x: x.sort_key)
 
                 for kid in kids:
-                    self.inner_modebox.pack_start(kid, expand=False)
+                    self.inner_modebox.pack_start(kid, False, True, 0)
