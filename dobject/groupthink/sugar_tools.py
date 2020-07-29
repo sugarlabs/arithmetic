@@ -91,7 +91,7 @@ class GroupActivity(Activity):
 
         v = Gtk.VBox()
         self.startup_label = Gtk.Label(self.message)
-        v.pack_start(self.startup_label)
+        v.pack_start(self.startup_label, True, True, 0)
         Window.set_canvas(self, v)
         self.show_all()
 
