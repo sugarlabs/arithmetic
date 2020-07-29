@@ -277,7 +277,7 @@ class GroupActivity(Activity):
         @rtype: str
         @return: a string previously passed to save_to_journal as cloudstring"""
         if file_path:
-            f = file(file_path, 'rb')
+            f = open(file_path, 'rb')
             s = f.read()
             f.close()
             return s
@@ -304,7 +304,7 @@ class GroupActivity(Activity):
         @param cloudstring: an additional string representing the state of all
             objects associated with self.cloud.  This string may be saved
             as the inheritor sees fit."""
-        f = file(file_path, 'wb')
+        f = open(file_path, 'wb')
         f.write(cloudstring)
         f.close()
 
