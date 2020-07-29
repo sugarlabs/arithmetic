@@ -2,7 +2,8 @@
 a module to make sharing easier in Sugar Activities.
 """
 import gi
-gi.require_version('TelepathyGLib','0.12')
+
+gi.require_version('TelepathyGLib', '0.12')
 import logging
 from gi.repository import TelepathyGLib
 
@@ -13,14 +14,16 @@ from sugar3.presence import presenceservice
 from sugar3.presence.tubeconn import TubeConnection
 from sugar3.graphics.window import Window
 
-from gi.repository import Gtk,Gdk
+from gi.repository import Gtk, Gdk
 from gi.repository import GLib
 
 from dobject.groupthink import groupthink_base as groupthink
 
+
 def exhaust_event_loop():
     while Gtk.events_pending():
         Gtk.main_iteration()
+
 
 class GroupActivity(Activity):
     """
@@ -46,11 +49,11 @@ class GroupActivity(Activity):
     example, subclasses of GroupActivity typically do not need to implement
     a __init__ method.
     """
-    
+
     message_preparing = "Preparing user interface"
     message_loading = "Loading object from Journal"
     message_joining = "Joining shared activity"
-    
+
     def __init__(self, handle):
         # self.initiating indicates whether this instance has initiated sharing
         # it always starts false, but will be set to true if this activity
@@ -61,17 +64,17 @@ class GroupActivity(Activity):
         self._processed_share = False
         # self.initialized tracks whether the Activity's display is up and running
         self.initialized = False
-        
+
         self.early_setup()
-        
+
         super(GroupActivity, self).__init__(handle)
         self.dbus_name = self.get_bundle_id()
         self.logger = logging.getLogger(self.dbus_name)
-        
+
         self._handle = handle
-        
+
         ##gobject.threads_init()
-                
+
         self._sharing_completed = not self.shared_activity
         self._readfile_completed = not handle.object_id
         if self.shared_activity:
@@ -85,13 +88,13 @@ class GroupActivity(Activity):
         toolbox = ActivityToolbar(self)
         self.set_toolbox(toolbox)
         toolbox.show()
-        
+
         v = Gtk.VBox()
         self.startup_label = Gtk.Label(self.message)
         v.pack_start(self.startup_label)
-        Window.set_canvas(self,v)
+        Window.set_canvas(self, v)
         self.show_all()
-        
+
         # The show_all method queues up draw events, but they aren't executed
         # until the mainloop has a chance to process them.  We want to process
         # them immediately, because we need to show the waiting screen
@@ -100,7 +103,7 @@ class GroupActivity(Activity):
         # exhaust_event_loop() provides the possibility that write_file could
         # be called at this time, so write_file is designed to trigger read_file
         # itself if that path occurs.
-        
+
         self.tubebox = groupthink.TubeBox()
         self.timer = groupthink.TimeHandler("main", self.tubebox)
         self.cloud = groupthink.Group(self.tubebox)
@@ -109,7 +112,7 @@ class GroupActivity(Activity):
         # self.cloud has to be defined before the call to self.set_canvas, because
         # set_canvas can trigger almost anything, including pending calls to read_file,
         # which relies on self.cloud.
-        
+
         # get the Presence Service
         self.pservice = presenceservice.get_instance()
         # Buddy object for you
@@ -123,34 +126,34 @@ class GroupActivity(Activity):
                 self._shared_cb(self)
             else:
                 self._joined_cb(self)
-        
+
         self.add_events(Gdk.EventMask.VISIBILITY_NOTIFY_MASK)
         self.connect("visibility-notify-event", self._visible_cb)
         self.connect("notify::active", self._active_cb)
-        
+
         if not self._readfile_completed:
             self.read_file(self._jobject.file_path)
         elif not self.shared_activity:
             GLib.idle_add(self._initialize_cleanstart)
-    
+
     def _initialize_cleanstart(self):
         self.initialize_cleanstart()
         self._initialize_display()
         return False
-    
+
     def initialize_cleanstart(self):
         """
         Any subclass that needs to take any extra action in the case where
         the activity is launched locally without a sharing context or input
         file should override this method"""
         pass
-    
+
     def early_setup(self):
         """
         Any subclass that needs to take an action before any external interaction
         (e.g. read_file, write_file) occurs should place that code in early_setup"""
         pass
-    
+
     def _initialize_display(self):
         main_widget = self.initialize_display()
         Window.set_canvas(self, main_widget)
@@ -161,7 +164,7 @@ class GroupActivity(Activity):
             self.when_shared()
             self._processed_share = True
         self.show_all()
-    
+
     def initialize_display(self):
         """
         All subclasses must override this method, which is the principal
@@ -170,7 +173,7 @@ class GroupActivity(Activity):
         @return: The widget that will be the display for this activity (i.e.
             the canvas)."""
         raise NotImplementedError
-        
+
     def share(self, private=False):
         """
         The purpose of this function is solely to permit us to determine
@@ -182,7 +185,7 @@ class GroupActivity(Activity):
         if self.initialized and not self._processed_share:
             self.when_shared()
             self._processed_share = True
-    
+
     def when_shared(self):
         """
         Inheritors should override this method to perform any special
@@ -216,7 +219,7 @@ class GroupActivity(Activity):
         self.text_chan = self.shared_activity.telepathy_text_chan
 
         self.tubes_chan[TelepathyGLib.IFACE_CHANNEL_TYPE_TUBES].connect_to_signal('NewTube',
-            self._new_tube_cb)
+                                                                                  self._new_tube_cb)
 
     def _list_tubes_reply_cb(self, tubes):
         self.logger.debug('Got %d tubes from ListTubes' % len(tubes))
@@ -241,15 +244,15 @@ class GroupActivity(Activity):
 
     def _new_tube_cb(self, id, initiator, type, service, params, state):
         self.logger.debug('New tube: ID=%d initator=%d type=%d service=%s '
-                     'params=%r state=%d', id, initiator, type, service,
-                     params, state)
+                          'params=%r state=%d', id, initiator, type, service,
+                          params, state)
         if (type == TelepathyGLib.TubeType.DBUS and
-            service == self.dbus_name):
+                service == self.dbus_name):
             if state == TelepathyGLib.TubeState.LOCAL_PENDING:
                 self.tubes_chan[TelepathyGLib.IFACE_CHANNEL_TYPE_TUBES].AcceptDBusTube(id)
             tube_conn = TubeConnection(self.conn,
-                self.tubes_chan[TelepathyGLib.IFACE_CHANNEL_TYPE_TUBES],
-                id, group_iface=self.text_chan[TelepathyGLib.IFACE_CHANNEL_INTERFACE_GROUP])
+                                       self.tubes_chan[TelepathyGLib.IFACE_CHANNEL_TYPE_TUBES],
+                                       id, group_iface=self.text_chan[TelepathyGLib.IFACE_CHANNEL_INTERFACE_GROUP])
             self.tubebox.insert_tube(tube_conn, self.initiating)
             self._sharing_completed = True
             if self._readfile_completed and not self.initialized:
@@ -261,7 +264,7 @@ class GroupActivity(Activity):
         if self._sharing_completed and not self.initialized:
             self._initialize_display()
         pass
-        
+
     def load_from_journal(self, file_path):
         """
         Inheritors wishing to control file saving should override this method.
@@ -273,12 +276,12 @@ class GroupActivity(Activity):
         @param file_path: path to the file to read
         @rtype: str
         @return: a string previously passed to save_to_journal as cloudstring"""
-	if file_path:
-            f = file(file_path,'rb')
+        if file_path:
+            f = file(file_path, 'rb')
             s = f.read()
             f.close()
             return s
-    
+
     def write_file(self, file_path):
         # There is a possibility that the user could trigger a write_file
         # action before read_file has occurred.  This could be dangerous,
@@ -287,7 +290,7 @@ class GroupActivity(Activity):
         # read) before writing.
         if not self._readfile_completed:
             self.read_file(self._jobject.file_path)
-        self.save_to_journal(file_path, self.cloud.dumps())            
+        self.save_to_journal(file_path, self.cloud.dumps())
 
     def save_to_journal(self, file_path, cloudstring):
         """Any inheritor who wishes to control file
@@ -304,28 +307,28 @@ class GroupActivity(Activity):
         f = file(file_path, 'wb')
         f.write(cloudstring)
         f.close()
-        
+
     def _active_cb(self, widget, event):
         self.logger.debug("_active_cb")
         if self.props.active:
             self.resume()
         else:
             self.pause()
-            
+
     def _visible_cb(self, widget, event):
         self.logger.debug("_visible_cb")
         if event.state == Gdk.VisibilityState.FULLY_OBSCURED:
             self.pause()
         else:
             self.resume()
-    
+
     def pause(self):
         """
         This method will be called when the display is not visible.
         Subclasses should override this function to stop updating the display
         when it is not visible."""
         pass
-    
+
     def resume(self):
         """
         This method will be called when the display becomes visible.
