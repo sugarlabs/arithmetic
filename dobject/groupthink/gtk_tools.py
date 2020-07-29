@@ -12,6 +12,7 @@ from gi.repository import Gtk,Gdk
 from dobject.groupthink import groupthink_base as groupthink
 import logging
 from dobject.groupthink import stringtree
+from dobject.groupthink.generictreemodel import GenericTreeModel
 
 
 class RecentEntry(groupthink.UnorderedHandlerAcceptor, Gtk.Entry):
@@ -83,7 +84,7 @@ class SharedToggleButton(groupthink.UnorderedHandlerAcceptor, Gtk.ToggleButton):
             self.handler_unblock(self._change_handler)
 
 
-class SharedTreeStore(groupthink.CausalHandlerAcceptor, Gtk.GenericTreeModel):
+class SharedTreeStore(groupthink.CausalHandlerAcceptor, GenericTreeModel):
     """
     WARNING: SharedTreeStore is UNTESTED and probably does not work.
     
