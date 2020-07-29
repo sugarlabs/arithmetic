@@ -102,8 +102,8 @@ class SearchWalker(Walker):
         leftchild.annotation < annotation < rightchild.annotation
     """
     val = 0
-    compare = cmp
-    def prepare_descend(self, val, comparator=cmp):
+    compare = None
+    def prepare_descend(self, val, comparator=None):
         self.val = val
         self.compare = comparator
     def descend(self, node):
