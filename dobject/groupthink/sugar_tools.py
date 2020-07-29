@@ -8,7 +8,7 @@ import logging
 from gi.repository import TelepathyGLib
 
 from sugar3.activity.activity import Activity
-from sugar3.activity.widgets import ActivityToolbar
+from sugar3.graphics.toolbarbox import ToolbarBox
 from sugar3.presence import presenceservice
 
 from sugar3.presence.tubeconn import TubeConnection
@@ -85,8 +85,8 @@ class GroupActivity(Activity):
             self.message = self.message_preparing
 
         # top toolbar with share and close buttons:
-        toolbox = ActivityToolbar(self)
-        self.set_toolbox(toolbox)
+        toolbox = ToolbarBox(self)
+        self.set_toolbar_box(toolbox)
         toolbox.show()
 
         v = Gtk.VBox()
