@@ -1374,11 +1374,15 @@ class CausalDict(CausalObject):
         #Special clear
         self.copy = self._dict.copy
         self.get = self._dict.get
-        self.has_key = self._dict.has_key
         self.items = self._dict.items
-        self.iteritems = self._dict.iteritems
-        self.iterkeys = self._dict.iterkeys
-        self.itervalues = self._dict.itervalues
+
+        ''' Deprecated in Python 3'''
+        # self.has_key = self._dict.has_key
+        # self.iteritems = self._dict.iteritems
+        # self.iterkeys = self._dict.iterkeys
+        # self.itervalues = self._dict.itervalues
+
+
         self.keys = self._dict.keys
         #Special pop
         #Special popitem
