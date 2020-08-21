@@ -140,7 +140,7 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
         self.question = ""
         self.answer = ""
         self.cloud.scoreboard = groupthink.CausalDict(value_translator=score_codec)
-        self.scoreboard = self.cloud.scoreboard
+        self.scoreboard = self.cloud.scoreboard.__dict__
         self.mynickname = profile.get_nick_name()
         self.scoreboard[self.mynickname] = ImmutableScore()
         self._question_index = 0
