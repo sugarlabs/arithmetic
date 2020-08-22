@@ -964,7 +964,7 @@ class AddOnlySet(UnorderedObject):
         if len(self._set) > 0:
             return dbus.Array([self._trans(el, True) for el in self._set])
         else:
-            return dbus.Array([], type=dbus.Boolean) #Prevent introspection of empty list, which fails 
+            return dbus.Array([]) #Prevent introspection of empty list, which fails
     
     add_history = receive_message
     
