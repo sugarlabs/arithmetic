@@ -208,7 +208,7 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
         self.cloud.hardtoggle.connect("toggled", self.hard_cb)
 
         # Entry for puzzle period
-        self.cloud.periodentry = groupthink.gtk_tools.RecentEntry(max=2)
+        self.cloud.periodentry = groupthink.gtk_tools.RecentEntry()
         self.cloud.periodentry.modify_font(Pango.FontDescription("Mono 14"))
         self.cloud.periodentry.set_text(str(self.period))
         self.cloud.periodentry.set_width_chars(2)
