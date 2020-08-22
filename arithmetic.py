@@ -224,12 +224,12 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
         self.questionentry.set_property("editable", False)
 
         # Text entry box for answer
-        self.answerentry = Gtk.Entry(max=50)
+        self.answerentry = Gtk.Entry()
         self.answerentry.modify_font(Pango.FontDescription("Sans 14"))
         self.answerentry.connect("activate", self.answer_cb)
 
         # Whether the user was correct
-        self.decisionentry = Gtk.Entry(max=50)
+        self.decisionentry = Gtk.Entry()
         self.decisionentry.modify_font(Pango.FontDescription("Sans 14"))
         self.decisionentry.set_property("editable", False)
 
