@@ -477,8 +477,8 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
                 continue
 
             md = hashlib.sha1()
-            md.update(text)
-            hash = md.digest().encode("hex")
+            md.update(text.encode())
+            hash = md.hexdigest()
 
             if hash not in self._puzzle_hashes:
                 self._puzzle_hashes.add(hash)
