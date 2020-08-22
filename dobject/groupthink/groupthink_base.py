@@ -880,7 +880,9 @@ class AddOnlySet(UnorderedObject):
         self._listeners = [] 
 
         self.__and__ = self._set.__and__
-        self.__cmp__ = self._set.__cmp__
+
+        '''Deprecated in Python 3'''
+        # self.__cmp__ = self._set.__cmp__
         self.__contains__ = self._set.__contains__
         self.__eq__ = self._set.__eq__
         self.__ge__ = self._set.__ge__
