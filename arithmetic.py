@@ -90,36 +90,24 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
 
     def _configure_toolbars(self):
 
+        self.toolbar_box = ToolbarBox()
+        self.activity_button = ActivityToolbarButton(self)
+        self.toolbar_box.toolbar.insert(self.activity_button, 0)
+        self.activity_button.show()
 
-        toolbar_box = ToolbarBox()
-        toolbar = toolbar_box.toolbar
-
-        activity_button = ActivityToolbarButton(self)
-        toolbar_box.toolbar.insert(activity_button, 0)
-        activity_button.show()
-
-        self._add_expander(toolbar_box.toolbar)
-
-        toolbar.add(Gtk.SeparatorToolItem())
-
-
-
-        stop_button = StopButton(self)
-        stop_button.props.accelerator = '<Ctrl><Shift>Q'
-        toolbar_box.toolbar.insert(stop_button, -1)
-        stop_button.show()
-
-        self.set_toolbar_box(toolbar_box)
-        toolbar_box.show()
-
-    def _add_expander(self, toolbar):
-        """Insert a toolbar item which will expand to fill the available
-        space."""
         separator = Gtk.SeparatorToolItem()
         separator.props.draw = False
         separator.set_expand(True)
-        toolbar.insert(separator, -1)
+        self.toolbar_box.toolbar.insert(separator, -1)
         separator.show()
+
+        stop_button = StopButton(self)
+        stop_button.props.accelerator = '<Ctrl><Shift>Q'
+        self.toolbar_box.toolbar.insert(stop_button, -1)
+        stop_button.show()
+
+        self.set_toolbar_box(self.toolbar_box)
+        self.toolbar_box.show()
 
     def _get_period(self):
         try:
