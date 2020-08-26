@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+  <!ENTITY fill_color "#9999FF">
+  <!ENTITY stroke_color "#5555FF">
+]>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Icon"
+   width="48.92"
+   height="43.846"
+   viewBox="0 0 48.92 43.846"
+   overflow="visible"
+   enable-background="new 0 0 48.92 43.846"
+   xml:space="preserve"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="activity-sharedtextdemo.svg"
+   sodipodi:docbase="/home/bens/olpc3d/range/AcousticMeasure.activity/activity"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"><metadata
+   id="metadata2238"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs2236"><inkscape:perspective
+     sodipodi:type="inkscape:persp3d"
+     inkscape:vp_x="0 : 21.923 : 1"
+     inkscape:vp_y="0 : 1000 : 0"
+     inkscape:vp_z="48.919998 : 21.923 : 1"
+     inkscape:persp3d-origin="24.459999 : 14.615334 : 1"
+     id="perspective2445" /></defs><sodipodi:namedview
+   inkscape:window-height="729"
+   inkscape:window-width="1016"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0.0"
+   guidetolerance="10.0"
+   gridtolerance="10.0"
+   objecttolerance="10.0"
+   borderopacity="1.0"
+   bordercolor="#666666"
+   pagecolor="#ffffff"
+   id="base"
+   inkscape:zoom="8"
+   inkscape:cx="26.413089"
+   inkscape:cy="19.700941"
+   inkscape:window-x="0"
+   inkscape:window-y="29"
+   inkscape:current-layer="Icon"
+   showgrid="false" />
+
+
+<rect
+   style="fill:&fill_color;;fill-opacity:1;stroke:&stroke_color;;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+   id="rect2412"
+   width="35.25"
+   height="23.75"
+   x="10.375001"
+   y="11.721001" /><path
+   style="fill:&fill_color;;fill-opacity:1;fill-rule:evenodd;stroke:&stroke_color;;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+   d="M 9.1250004,5.2209997 L 15.750001,20.471 L 20.500001,23.846 L 20.750001,18.596 L 13.75,3.2209996 L 9.1250004,5.2209997 z"
+   id="path2414"
+   inkscape:transform-center-x="12.25"
+   inkscape:transform-center-y="3.25" /><path
+   style="fill:&fill_color;;fill-opacity:1;fill-rule:evenodd;stroke:&stroke_color;;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+   d="M 42.429994,3.974932 L 29.71953,14.693944 L 27.848015,20.212147 L 32.949302,18.946496 L 45.672008,7.8323877 L 42.429994,3.974932 z"
+   id="path2416"
+   inkscape:transform-center-x="-3.3850102"
+   inkscape:transform-center-y="-5.8774603" /><path
+   style="fill:&fill_color;;fill-opacity:1;fill-rule:evenodd;stroke:&stroke_color;;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+   d="M 27.575302,43.425093 L 36.368736,29.313798 L 36.450624,23.487442 L 31.986692,26.262025 L 23.303238,40.752999 L 27.575302,43.425093 z"
+   id="path2418" /></svg>

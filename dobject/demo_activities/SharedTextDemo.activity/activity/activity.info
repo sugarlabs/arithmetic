@@ -1,0 +1,8 @@
+[Activity]
+name = SharedTextDemo
+service_name = org.sugarlabs.SharedTextDemo
+class = sharedtextdemoactivity.SharedTextDemoActivity
+icon = activity-sharedtextdemo
+activity_version = 3
+license = GPLv2+
+show_launcher = yes
