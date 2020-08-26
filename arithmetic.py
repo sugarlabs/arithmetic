@@ -130,7 +130,8 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
         self.cloud.scoreboard = groupthink.CausalDict(value_translator=score_codec)
         self.scoreboard = self.cloud.scoreboard.__dict__
         self.mynickname = profile.get_nick_name()
-        self.scoreboard[self.mynickname] = ImmutableScore()
+        score = ImmutableScore(last_score=0, cumulative_score=0, last_time=0.0)
+        self.scoreboard[self.mynickname] = score
         self._question_index = 0
         self._puzzle_hashes = set()
         self._puzzle_code = {}
@@ -408,8 +409,8 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
                                    GObject.TYPE_INT,    # total score
                                    GObject.TYPE_FLOAT)  # time for last question
 
-        for person, score in list(self.scoreboard.items()):
-            self.model.append(None, (person, score.last_score, score.cumulative_score, score.last_time))
+        for person in self.scoreboard:
+            self.model.append(None, (person, self.scoreboard[person].last_score, self.scoreboard[person].cumulative_score, self.scoreboard[person].last_time))
 
         self.treeview.set_model(self.model)
         return True
