@@ -8,70 +8,73 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-09 13:19-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-04-14 13:22+0000\n"
+"Last-Translator: NF <rkavt@smartprojects.ge>\n"
+"Language-Team: Georgian <http://weblate.sugarlabs.org/projects/"
+"sugar-activities/arithmetic/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4.2\n"
 
 #: activity/activity.info:2
 msgid "Arithmetic"
-msgstr ""
+msgstr "არითმეტიკა"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:173
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:174
 msgid "Round score"
-msgstr ""
+msgstr "რაუნდის ქულა"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:175
 msgid "Total score"
-msgstr ""
+msgstr "ჯამური ქულა"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:176
 msgid "Time for answering last question"
-msgstr ""
+msgstr "ბოლო კითხვაზე პასუხის გაცემის დრო"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:206
 msgid "Difficulty: "
-msgstr ""
+msgstr "სირთულე: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:207
 msgid "Period: "
-msgstr ""
+msgstr "პერიოდი: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:209
 msgid "Puzzles: "
-msgstr ""
+msgstr "პაზლები: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:210
 msgid "Question: "
-msgstr ""
+msgstr "კითხვა: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:211
 msgid "Answer: "
-msgstr ""
+msgstr "პასუხი: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:212
 msgid "You were: "
-msgstr ""
+msgstr "თქვენ ბრძანდებოდით: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:213
 msgid "Last round: "
-msgstr ""
+msgstr "ბოლო რაუნდი: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:215
 msgid "Time until next question: "
-msgstr ""
+msgstr "დრო შემდეგ კითხვამდე: "
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:383
 msgid "Correct!"
-msgstr ""
+msgstr "სწორია!"
 
 #: /home/cjb/git/Arithmetic.activity/arithmetic.py:392
 msgid "Not correct"
-msgstr ""
+msgstr "არასწორია"
