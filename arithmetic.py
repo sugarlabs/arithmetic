@@ -24,7 +24,13 @@ import os
 import os.path
 import hashlib
 import dobject.groupthink as groupthink
-import dobject.groupthink.gtk_tools as gtk_tools
+try:
+    import dobject.groupthink.gtk_tools as gtk_tools
+except ImportError:
+    raise ImportError(
+        "Missing dobject module. Please run 'git submodule update --init' or clone using '--recursive'."
+    )
+
 import dobject.groupthink.sugar_tools as sugar_tools
 
 from gettext import gettext as _
