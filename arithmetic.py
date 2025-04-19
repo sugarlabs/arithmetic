@@ -6,13 +6,12 @@
 # the Free Software Foundation; either version 3 of the License, or
 # (at your option) any later version.
 """Arithmetic Activity: A quiz activity for arithmetic."""
+from __future__ import with_statement  
 
-from __future__ import with_statement
-import sys, cgitb
 
-cgitb.enable(format="plain")
-cgitb.handler = sys.excepthook
-
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import logging
 import gtk
 import pango
@@ -24,13 +23,7 @@ import os
 import os.path
 import hashlib
 import dobject.groupthink as groupthink
-try:
-    import dobject.groupthink.gtk_tools as gtk_tools
-except ImportError:
-    raise ImportError(
-        "Missing dobject module. Please run 'git submodule update --init' or clone using '--recursive'."
-    )
-
+import dobject.groupthink.gtk_tools as gtk_tools
 import dobject.groupthink.sugar_tools as sugar_tools
 
 from gettext import gettext as _
@@ -511,7 +504,8 @@ class ArithmeticActivity(groupthink.sugar_tools.GroupActivity):
 
                 env_global = {}
                 env_local = {}
-                exec text in env_global, env_local
+                exec(text, env_global, env_local)
+
 
                 togglename = hash + "_toggle"
                 self.cloud[togglename] = groupthink.gtk_tools.SharedToggleButton(' ' + env_local['name'] + ' ')
